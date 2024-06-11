@@ -1,1 +1,1 @@
-# tackat-internship
+# Teckat-intership
