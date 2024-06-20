@@ -13,21 +13,22 @@ const CreateStudent:React.FC = () =>
     } = useForm<IStudent>({ mode: "all" });
 
     const createNewStudent = (data: IStudent) => {
-    console.log(data);
-
-    localStorage.setItem("students",JSON.stringify(data));
-
-    // const students: IStudent[] = JSON.parse(
-    //   localStorage.getItem("students") as string
-    // );
-    // data._id = (students.length + 1).toString();
-
-    // students.push(data);
-    // localStorage.setItem("students", JSON.stringify(students));
-    // navigate("/student/student-details");
+        let students: IStudent[] = [];
+    
+        const newStudent = JSON.parse(localStorage.getItem("students") as string);
+        if (newStudent) {
+        data._id = (students.length + 1).toString();
+        students = newStudent;
+        } else {
+        data._id = (0).toString();
+        }
+        students.push(data);
+        localStorage.setItem("students", JSON.stringify(students));
+        navigate("/student");
     };
+
     return (
-    <>
+        <>
         <div className="create_student_section">
         Lorem, ipsum.
         <form onSubmit={handleSubmit(createNewStudent)}>
