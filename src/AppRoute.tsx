@@ -6,6 +6,7 @@ import {
     StudentOutlet,
     Students,
     UpdateStudent } from "./pages";
+import Test1 from "./pages/Test1";
 
     
 
@@ -18,6 +19,7 @@ const AppRoute: React.FC = () => {
             <Route path="create-student" element={<CreateStudent/>}/>
             <Route path="update-student/:studentID" element={<UpdateStudent/>}/>
         </Route>
+            <Route path="test" element={<Test1/>}/>
     </Routes>
   );
 };
